@@ -180,6 +180,7 @@ export default {
     },
 
     beforeCreate() {
+        debugger
         this.stickDrag = false;
         this.bodyDrag = false;
         this.dimensionsBeforeMove = { pointerX: 0, pointerY: 0, x: 0, y: 0, w: 0, h: 0 };
@@ -218,13 +219,13 @@ export default {
 
         if (this.dragHandle) {
             [...this.$el.querySelectorAll(this.dragHandle)].forEach((dragHandle) => {
-                dragHandle.setAttribute('data-drag-handle', this._uid);
+                dragHandle.setAttribute('data-drag-handle', "yes");
             });
         }
 
         if (this.dragCancel) {
             [...this.$el.querySelectorAll(this.dragCancel)].forEach((cancelHandle) => {
-                cancelHandle.setAttribute('data-drag-cancel', this._uid);
+                cancelHandle.setAttribute('data-drag-cancel', "yes");
             });
         }
     },
@@ -299,11 +300,11 @@ export default {
                 return;
             }
 
-            if (this.dragHandle && target.getAttribute('data-drag-handle') !== this._uid.toString()) {
+            if (this.dragHandle && target.getAttribute('data-drag-handle') !== "yes") {
                 return;
             }
 
-            if (this.dragCancel && target.getAttribute('data-drag-cancel') === this._uid.toString()) {
+            if (this.dragCancel && target.getAttribute('data-drag-cancel') === "yes") {
                 return;
             }
 

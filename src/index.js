@@ -1,6 +1,7 @@
 // Import vue component
 import VueDragResize from './components/vue-drag-resize.vue';
 
+
 // Declare install function executed by Vue.use()
 export function install(Vue) {
     if (install.installed) return;
